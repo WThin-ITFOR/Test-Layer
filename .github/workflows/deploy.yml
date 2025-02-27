@@ -26,6 +26,8 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    permissions:
+      id-token: write
     needs: call-zip-archive
     steps: 
       - name: Configure AWS credentials
