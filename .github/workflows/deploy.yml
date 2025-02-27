@@ -18,9 +18,7 @@ on:
         description: 'Environment to run tests'
         type: environment
         required: true
-        options:
-          - Staging
-          - Production
+        default: Staging
 
 jobs:
   deploy: 
