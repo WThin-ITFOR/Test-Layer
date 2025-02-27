@@ -21,6 +21,8 @@ on:
         default: Staging
 
 jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/zip_archive.yml
   deploy: 
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}

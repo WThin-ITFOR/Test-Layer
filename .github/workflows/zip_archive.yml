@@ -1,10 +1,10 @@
 name: Archive Zip Named Python
 on: 
   workflow_call:
-  push:
-    branches:
+  # push:
+  #   branches:
     #  - main
-     - 'releases/**'
+    #  - 'releases/**'
 
 jobs:
   archive_library: 
