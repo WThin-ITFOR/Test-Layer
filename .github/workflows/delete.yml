@@ -34,6 +34,6 @@ jobs:
             role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
             aws-region: ap-northeast-1
         - name: Make Delete Layer Script Executable
-          run: chmod +x ./delete_layer.sh
+          run: chmod +x ./.github/workflows/delete_layer.sh
         - name: Run Delete Script
-          run: ./delete_layer.sh "${{ github.event.inputs.layer_name }}"
+          run: ./.github/workflows/delete_layer.sh "${{ github.event.inputs.layer_name }}"
