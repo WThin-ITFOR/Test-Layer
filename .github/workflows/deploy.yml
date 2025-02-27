@@ -15,15 +15,14 @@ on:
         - warning
         - debug
       environment:
-        description: 'Environment to run tests'
+        description: 'Environment to run'
         type: environment
         required: true
-        default: Staging
 
 jobs:
   call-zip-archive:
     uses: ./.github/workflows/zip_archive.yml
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     permissions:
@@ -47,10 +46,3 @@ jobs:
             --zip-file fileb://layer.zip
       - name: Display downloaded files
         run: ls -lah
-      # - name: Download artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: python-app
-      # - 
-      # - name: Display downloaded files
-      #   run: ls -lah
