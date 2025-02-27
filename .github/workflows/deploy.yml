@@ -30,13 +30,23 @@ jobs:
       id-token: write
     needs: call-zip-archive
     steps: 
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: python-app
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ap-northeast-1
-      - name: Sample command
-        run: aws s3 ls
+      - name: Upload Layer to AWS Lambda
+        run: |
+          aws lambda publish-layer-version \
+            --layer-name test-layer \
+            --compatible-runtimes python3.12 \
+            --zip-file fileb://python.zip
+      - name: Display downloaded files
+        run: ls -lah
       # - name: Download artifact
       #   uses: actions/download-artifact@v4
       #   with:

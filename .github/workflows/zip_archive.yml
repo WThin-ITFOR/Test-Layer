@@ -29,9 +29,9 @@ jobs:
         with:
           name : python-app
           path : python.zip
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: python-app
-      - name: Display downloaded files
-        run: ls -lah
+      # - name: Download artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: python-app
+      # - name: Display downloaded files
+      #   run: ls -lah
