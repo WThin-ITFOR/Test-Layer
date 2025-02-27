@@ -1,0 +1,39 @@
+name: Archive Zip Named Python
+on: 
+  push:
+    branches:
+     - main
+     - 'releases/**'
+
+jobs:
+  archive_library: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Source Code Checkout 
+        uses: actions/checkout@v4
+      - name: Set Up Python Version
+        uses: actions/setup-python/main
+        with: 
+          python-version: '3.12'
+      - name : Create and start virtual enviroment
+        run : |
+          python -m venv venv
+          source venv/bin/activate
+      - name : Install dependencies
+        run : pip install requirements.txt --target python
+      - name : Zip artifact for deployment
+        run : zip python.zip ./python -r
+      - name : Upload artifact for deployment jobs
+        uses : actions/upload-artifact@v4.0.0
+        with:
+          name : python-app
+          path : |
+          python.zip
+          !venv/
+      # - name: Download artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: my-artifact
+      # - name: Display structure of downloaded files
+      #   run: ls -R
+
