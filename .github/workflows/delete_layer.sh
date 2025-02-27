@@ -9,7 +9,7 @@ get_versions () {
 versions=$(get_versions)
 for version in $versions;do
     echo "deleting arn:aws:lambda:ap-northeast-1:*:layer:$LAYER_NAME:$version"
-    aws lambda delete-layer-version --layer-name "$LAYER_NAME" --version "$version" > /dev/null
+    aws lambda delete-layer-version --layer-name "$LAYER_NAME" --version-number "$version" > /dev/null
 done
 
 echo "All versions of $LAYER_NAME have been deleted!"
