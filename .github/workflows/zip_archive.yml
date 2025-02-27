@@ -27,9 +27,7 @@ jobs:
         uses : actions/upload-artifact@v4.0.0
         with:
           name : python-app
-          path : |
-            python.zip
-            !venv/
+          path : ./dist
       # - name: Download artifact
       #   uses: actions/download-artifact@v4
       #   with:
