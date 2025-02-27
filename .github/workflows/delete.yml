@@ -1,4 +1,4 @@
-name: Deploy
+name: Delete Deployment Service
 on: 
   push:
     branches:
