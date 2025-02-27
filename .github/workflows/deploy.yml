@@ -21,12 +21,12 @@ on:
         default: Staging
 
 jobs:
-  call-reusable-workflow:
+  call-zip-archive:
     uses: ./.github/workflows/zip_archive.yml
   deploy: 
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: archive_library
+    needs: call-zip-archive
     steps: 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
