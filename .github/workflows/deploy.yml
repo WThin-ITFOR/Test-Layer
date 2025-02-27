@@ -18,10 +18,14 @@ on:
         description: 'Environment to run tests'
         type: environment
         required: true
+        options:
+          - Staging
+          - Production
 
 jobs:
   deploy: 
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     needs: archive_library
     steps: 
       - name: Configure AWS credentials
