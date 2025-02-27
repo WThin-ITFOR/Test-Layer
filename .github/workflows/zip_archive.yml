@@ -1,5 +1,6 @@
 name: Archive Zip Named Python
 on: 
+  workflow_call:
   push:
     branches:
     #  - main
