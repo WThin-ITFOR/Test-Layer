@@ -28,8 +28,8 @@ jobs:
         with:
           name : python-app
           path : |
-          python.zip
-          !venv/
+            python.zip
+            !venv/
       # - name: Download artifact
       #   uses: actions/download-artifact@v4
       #   with:
