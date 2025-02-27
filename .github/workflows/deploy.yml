@@ -1,4 +1,4 @@
-name: Archive Zip Named Python
+name: Deploy
 on: 
   push:
     branches:

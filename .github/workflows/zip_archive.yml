@@ -2,7 +2,7 @@ name: Archive Zip Named Python
 on: 
   push:
     branches:
-     - main
+    #  - main
      - 'releases/**'
 
 jobs:
