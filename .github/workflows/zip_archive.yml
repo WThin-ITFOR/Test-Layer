@@ -20,9 +20,9 @@ jobs:
           python -m venv venv
           source venv/bin/activate
       - name : Install dependencies
-        run : pip install -r requirements.txt
+        run : pip install -r requirements.txt --target .
       - name : Zip artifact for deployment
-        run : zip -r python.zip . -x "venv/*"
+        run : zip -r python.zip . -x "venv/*" ".github/*" ".git/*"
       - name : Upload artifact for deployment jobs
         uses : actions/upload-artifact@v4.0.0
         with:
