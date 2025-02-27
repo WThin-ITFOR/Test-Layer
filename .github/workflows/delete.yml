@@ -22,7 +22,7 @@ on:
 
 jobs:
     delete_layer:
-      if: ${{ github.event.inputs.operation == 'delete_layer' && github.event.inputs.layer_name != '' }}
+      if: ${{ github.event.inputs.operation == 'delete_layer_version' && github.event.inputs.layer_name != '' }}
       runs-on: ubuntu-latest
       environment: ${{ inputs.environment }}
       permissions:
